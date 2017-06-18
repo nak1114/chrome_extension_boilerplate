@@ -24,7 +24,6 @@
 
   function modAnchor(e) {
     var s = e.getAttribute('data-tags').split(" ");
-    var ele = e.children[0];
 
     if (s.indexOf('29963') >= 0) {
       e.style.display = "none";
@@ -35,12 +34,20 @@
       return;
     }
 
+    var ele = e.children[0];
     ele.addEventListener('click', save_href);
     var href = ele.getAttribute('href');
     if (href) {
       ele.setAttribute('href_dummy', href);
     }
     ele.removeAttribute('href');
+
+    var ele = ele.children[0];
+    var href = ele.getAttribute('data-src');
+    if (href) {
+      ele.setAttribute('src', href);
+    }
+    
     return;
   }
 
