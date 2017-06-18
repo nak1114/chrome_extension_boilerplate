@@ -15,6 +15,26 @@
     link.click();
     //document.body.removeChild(link) // for FF
 
+    /*
+    fetch('https://localhost:8081',{
+      mode: 'no-cors',
+      method: 'post',
+      body: JSON.stringify({
+        url: text
+      })
+    })
+    .then(function(res){
+      console.log('ret:',res);
+      return res.json();
+    })
+    .then(function(res){
+      console.log('ok:',res);
+    })
+    .catch(function(error){
+      console.log('error',error);
+    })
+    ;
+    */
   }
 
   function save_href(e) {
