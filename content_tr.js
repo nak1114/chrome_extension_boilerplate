@@ -17,7 +17,30 @@
 
   }
 
+  function postLog2(x) {
+    return new Promise((resolve, reject) => {
+      fetch(options.sitelog + x.api, {
+          mode: 'cors',
+          method: 'POST',
+          body: JSON.stringify(x),
+        })
+        .then(function (res) {
+          resolve(res.json());
+        })
+        .catch(function (error) {
+          reject(error);
+        });
+      //.then(function(data){ console.log(  data  ) })
+    });
+  }
+
   function save_href(url, name) {
+    postLog2({
+      url: url,
+      name: name,
+      api: '/tr2',
+    })
+/*
     chrome.runtime.sendMessage({
       action: 'logging',
       data: {
@@ -26,6 +49,7 @@
         api: '/tr',
       },
     });
+*/
     return false;
   }
 
