@@ -60,14 +60,16 @@
     }
 
     var oimg = ele.children[0];
-    var div = document.createElement('div');
     var img = document.createElement('img');
-
-    img.setAttribute('width', oimg.getAttribute('width'));
-    img.setAttribute('height', oimg.getAttribute('height'));
-    img.setAttribute('src', oimg.getAttribute('data-src'));
-    ele.insertBefore(img, ele.firstChild);
-    ele.removeChild(oimg);
+    var src = oimg.getAttribute('data-src');
+    // var src = oimg.getAttribute('data-src') || oimg.getAttribute('src');
+    if(src){
+      img.setAttribute('width', oimg.getAttribute('width'));
+      img.setAttribute('height', oimg.getAttribute('height'));
+      img.setAttribute('src', src);
+      ele.insertBefore(img, ele.firstChild);
+      ele.removeChild(oimg);
+    }
 
     ele.removeAttribute('href');
     return;
